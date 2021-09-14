@@ -5,8 +5,8 @@ void setup() {
   drawScales(40, 40);
 }
 
-int rand(int min, int max) {
-  return (int) (Math.random() * (max - min)) + min;
+int rand(int minv, int maxv) {
+  return (int) (Math.random() * (maxv - minv)) + minv;
 }
 // 0.005 --> 0.015
 void drawScale(float x, float y, float w, float h) {
