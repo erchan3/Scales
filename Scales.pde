@@ -1,14 +1,18 @@
 void setup() {
   size(400, 400);
   noStroke();
+}
+
+void draw() {
   background(10);
   drawScales(40, 40);
+  noLoop();
 }
 
 int rand(int minv, int maxv) {
   return (int) (Math.random() * (maxv - minv)) + minv;
 }
-// 0.005 --> 0.015
+
 void drawScale(float x, float y, float w, float h) {
   int r = 200;
   int g = 100;
