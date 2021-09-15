@@ -1,12 +1,8 @@
 void setup() {
   size(400, 400);
   noStroke();
-}
-
-void draw() {
   background(10);
   drawScales(40, 40);
-  noLoop();
 }
 
 int rand(int minv, int maxv) {
@@ -17,27 +13,25 @@ void drawScale(float x, float y, float w, float h) {
   int r = 200;
   int g = 100;
   int b = 100;
-  int randXBound = (int) h/13;
-  int randYBound = (int) w/25;
+  int randXBound = (int) (h/13);
+  int randYBound = (int) (w/25);
   float step = rand(5, 15) / 1000.0;
   float scaleSize = 1;
 
-  push();
   translate(x, y + h / 2);
 
   for (float i = 1; i > 0; i -= step) {
     fill(r, g, b);
-    push();
     scale(scaleSize);
     bezier(0, -w/2, h + rand(-randXBound, randXBound + 1), -w/3 + rand(-randYBound, randYBound + 1), h + rand(-randXBound, randXBound + 1), w/3 + rand(-randYBound, randYBound + 1), 0, w/2);
-    pop();
+    scale(1/scaleSize);
     float colorInc = 1 / step / 100;
     r -= colorInc;
     g -= colorInc;
     b -= colorInc;
     scaleSize -= 0.01;
   }
-  pop();
+  translate(-x, -(y + h / 2));
 }
 
 void drawScales(float w, float h) {
